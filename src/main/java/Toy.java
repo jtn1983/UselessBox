@@ -3,7 +3,7 @@ public class Toy {
 
     public void change(int count, int sleep) {
         try {
-            for (int i = 0; i < count; i++){
+            for (int i = 0; i < count; i++) {
                 System.out.println("Включаю тумблер");
                 if (!tumbler) {
                     tumbler = true;
@@ -18,15 +18,12 @@ public class Toy {
     }
 
     public void controlTumbler() {
-        while (true) {
-            if (Thread.interrupted()) {
-                return;
-            }
-            if (tumbler) {
-                tumbler = false;
-                System.out.println("Выключаю тумблер");
-            }
+        if (Thread.interrupted()) {
+            return;
         }
-
+        if (tumbler) {
+            tumbler = false;
+            System.out.println("Выключаю тумблер");
+        }
     }
 }
