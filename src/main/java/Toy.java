@@ -5,7 +5,9 @@ public class Toy {
         try {
             for (int i = 0; i < count; i++){
                 System.out.println("Включаю тумблер");
-                tumbler = !tumbler;
+                if (!tumbler) {
+                    tumbler = true;
+                }
                 Thread.sleep(sleep);
             }
             Thread.currentThread().interrupt();
@@ -17,10 +19,10 @@ public class Toy {
 
     public void controlTumbler() {
         while (true) {
-            if (Thread.interrupted() == true) {
+            if (Thread.interrupted()) {
                 return;
             }
-            if (tumbler == true) {
+            if (tumbler) {
                 tumbler = false;
                 System.out.println("Выключаю тумблер");
             }
